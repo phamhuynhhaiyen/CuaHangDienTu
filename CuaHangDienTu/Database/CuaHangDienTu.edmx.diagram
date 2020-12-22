@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d1d966ab8ba4b449069d9e9509541a8" Name="Diagram1">
+        <EntityTypeShape EntityType="CuaHangDienTuModel.CTPN" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.HoaDon" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.KhachHang" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.LoaiSanPham" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.NhaCungCap" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.NhanVien" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.PhieuBaoHanh" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.PhieuNhap" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.SanPham" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.CTHD" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuaHangDienTuModel.User" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_CT_PhieuNhap_Mat_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_CT_PhieuNhap_Phieu_nhap1" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_CT_hoadon_Hoa_don" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_Hoa_don_Khach_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_Hoa_don_Nhan_vien" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_Phieu_bao_hanh_Khach_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_Mat_hang_Loai_mat_hang1" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_Mat_hang_Nha_cung_cap1" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_Chuc_vu_Nhan_vien" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_Phieu_nhap_Nhan_vien" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_Phieu_bao_hanh_Mat_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="CuaHangDienTuModel.FK_CT_hoadon_Mat_hang1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
