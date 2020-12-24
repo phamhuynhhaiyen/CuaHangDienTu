@@ -42,7 +42,8 @@ namespace CuaHangDienTu
         public void LoadDuLieu()
         {
             CuaHangDienTuEntities db = new CuaHangDienTuEntities();
-            var lstSanPham = from c in db.SanPhams select new { MaSP = c.MaSP, TenSP = c.TenSP, TenLoai = c.LoaiSanPham.TenLoai, TenNCC = c.NhaCungCap.TenNCC };
+            var lstSanPham = from c in db.SanPhams select new { MaSP = c.MaSP, TenSP = c.TenSP, TenLoai = 
+                             c.LoaiSanPham.TenLoai, TenNCC = c.NhaCungCap.TenNCC, SoLuongTon = c.SoLuongTon };
             dgvNhanVien.DataSource = lstSanPham.ToList();
         }
         private void UC_SanPham_Load(object sender, EventArgs e)

@@ -18,6 +18,7 @@ namespace CuaHangDienTu.Database
         public long MaSP { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<long> GiaNhap { get; set; }
+        public Nullable<long> ThanhTien { get; set; }
     
         public virtual SanPham SanPham { get; set; }
         public virtual PhieuNhap PhieuNhap { get; set; }

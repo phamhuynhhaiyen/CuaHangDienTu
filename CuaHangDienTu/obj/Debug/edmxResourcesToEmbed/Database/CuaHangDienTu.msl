@@ -1,6 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="CuaHangDienTuModelStoreContainer" CdmEntityContainer="CuaHangDienTuEntities">
+    <EntitySetMapping Name="CTHDs">
+      <EntityTypeMapping TypeName="CuaHangDienTuModel.CTHD">
+        <MappingFragment StoreEntitySet="CTHD">
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CTPNs">
       <EntityTypeMapping TypeName="CuaHangDienTuModel.CTPN">
         <MappingFragment StoreEntitySet="CTPN">
@@ -8,6 +19,7 @@
           <ScalarProperty Name="MaSP" ColumnName="MaSP" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
           <ScalarProperty Name="GiaNhap" ColumnName="GiaNhap" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -77,9 +89,9 @@
       <EntityTypeMapping TypeName="CuaHangDienTuModel.PhieuNhap">
         <MappingFragment StoreEntitySet="PhieuNhap">
           <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
-          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
           <ScalarProperty Name="MaNV" ColumnName="MaNV" />
           <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -90,6 +102,7 @@
           <ScalarProperty Name="TenSP" ColumnName="TenSP" />
           <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
           <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -101,16 +114,6 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CTHDs">
-      <EntityTypeMapping TypeName="CuaHangDienTuModel.CTHD">
-        <MappingFragment StoreEntitySet="CTHD">
-          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

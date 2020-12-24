@@ -17,7 +17,6 @@ E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.UC_NhanVien.resour
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.UC_KhachHang.resources
-E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.csprojAssemblyReference.cache
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.UC_SanPham.resources
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.UC_XemHoaDon.resources
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
@@ -92,3 +91,14 @@ E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.frmLoaiSP.resource
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.frmThemSP.resources
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.UC_NhapHang.resources
 E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.UC_DoiMK.resources
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.frmLogin.resources
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\RdlCompile.cache
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\RdlCompile.compiled
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.frmThemKH.resources
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.Report.Form1.resources
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.Report.frmPhieuNhap.resources
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.UC_XemPhieuNhap.resources
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.UC_ThongKe.resources
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\obj\Debug\CuaHangDienTu.csprojAssemblyReference.cache
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.dll
+E:\Hoc_C#\CuaHangDienTu\CuaHangDienTu\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.xml

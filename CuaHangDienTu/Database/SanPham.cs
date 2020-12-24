@@ -16,20 +16,23 @@ namespace CuaHangDienTu.Database
     {
         public SanPham()
         {
+            this.CTHDs = new HashSet<CTHD>();
             this.CTPNs = new HashSet<CTPN>();
             this.PhieuBaoHanhs = new HashSet<PhieuBaoHanh>();
-            this.CTHDs = new HashSet<CTHD>();
+            this.PhieuBaoHanhs1 = new HashSet<PhieuBaoHanh>();
         }
     
         public long MaSP { get; set; }
         public string TenSP { get; set; }
         public Nullable<long> MaLoai { get; set; }
         public Nullable<long> MaNCC { get; set; }
+        public Nullable<int> SoLuongTon { get; set; }
     
+        public virtual ICollection<CTHD> CTHDs { get; set; }
         public virtual ICollection<CTPN> CTPNs { get; set; }
         public virtual LoaiSanPham LoaiSanPham { get; set; }
         public virtual NhaCungCap NhaCungCap { get; set; }
         public virtual ICollection<PhieuBaoHanh> PhieuBaoHanhs { get; set; }
-        public virtual ICollection<CTHD> CTHDs { get; set; }
+        public virtual ICollection<PhieuBaoHanh> PhieuBaoHanhs1 { get; set; }
     }
 }

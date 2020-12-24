@@ -25,6 +25,7 @@ namespace CuaHangDienTu.Database
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<CTHD> CTHDs { get; set; }
         public DbSet<CTPN> CTPNs { get; set; }
         public DbSet<HoaDon> HoaDons { get; set; }
         public DbSet<KhachHang> KhachHangs { get; set; }
@@ -35,7 +36,6 @@ namespace CuaHangDienTu.Database
         public DbSet<PhieuNhap> PhieuNhaps { get; set; }
         public DbSet<SanPham> SanPhams { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
-        public DbSet<CTHD> CTHDs { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }

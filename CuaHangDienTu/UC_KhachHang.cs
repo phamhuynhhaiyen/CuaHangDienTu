@@ -27,5 +27,10 @@ namespace CuaHangDienTu
         {
             LoadDuLieu();
         }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

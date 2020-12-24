@@ -20,9 +20,9 @@ namespace CuaHangDienTu.Database
         }
     
         public long MaPhieuNhap { get; set; }
-        public Nullable<long> TongTien { get; set; }
         public Nullable<long> MaNV { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
+        public Nullable<long> TongTien { get; set; }
     
         public virtual ICollection<CTPN> CTPNs { get; set; }
         public virtual NhanVien NhanVien { get; set; }

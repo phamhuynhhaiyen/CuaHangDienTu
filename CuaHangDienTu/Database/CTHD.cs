@@ -16,8 +16,9 @@ namespace CuaHangDienTu.Database
     {
         public long MaHD { get; set; }
         public long MaSP { get; set; }
-        public string DonGia { get; set; }
-        public string SoLuong { get; set; }
+        public Nullable<long> DonGia { get; set; }
+        public Nullable<int> SoLuong { get; set; }
+        public Nullable<long> ThanhTien { get; set; }
     
         public virtual HoaDon HoaDon { get; set; }
         public virtual SanPham SanPham { get; set; }

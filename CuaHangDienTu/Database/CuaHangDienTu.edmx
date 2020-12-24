@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="CuaHangDienTuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'CuaHangDienTu.dbo.CTHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CTHD">
           <Key>
             <PropertyRef Name="MaHD" />
@@ -14,8 +12,9 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.CTHD' does not have a primary ke
           </Key>
           <Property Name="MaHD" Type="bigint" Nullable="false" />
           <Property Name="MaSP" Type="bigint" Nullable="false" />
-          <Property Name="DonGia" Type="nchar" MaxLength="10" />
-          <Property Name="SoLuong" Type="nchar" MaxLength="10" />
+          <Property Name="DonGia" Type="bigint" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="ThanhTien" Type="bigint" />
         </EntityType>
         <EntityType Name="CTPN">
           <Key>
@@ -26,6 +25,7 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.CTHD' does not have a primary ke
           <Property Name="MaSP" Type="bigint" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
           <Property Name="GiaNhap" Type="bigint" />
+          <Property Name="ThanhTien" Type="bigint" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
@@ -77,7 +77,7 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.CTHD' does not have a primary ke
           <Key>
             <PropertyRef Name="MaPhieu" />
           </Key>
-          <Property Name="MaPhieu" Type="bigint" Nullable="false" />
+          <Property Name="MaPhieu" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SDT" Type="bigint" />
           <Property Name="MaSP" Type="bigint" />
           <Property Name="NgayMua" Type="date" />
@@ -88,9 +88,9 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.CTHD' does not have a primary ke
             <PropertyRef Name="MaPhieuNhap" />
           </Key>
           <Property Name="MaPhieuNhap" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TongTien" Type="bigint" />
           <Property Name="MaNV" Type="bigint" />
           <Property Name="NgayLap" Type="date" />
+          <Property Name="TongTien" Type="bigint" />
         </EntityType>
         <EntityType Name="SanPham">
           <Key>
@@ -100,6 +100,7 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.CTHD' does not have a primary ke
           <Property Name="TenSP" Type="nvarchar" MaxLength="50" />
           <Property Name="MaLoai" Type="bigint" />
           <Property Name="MaNCC" Type="bigint" />
+          <Property Name="SoLuongTon" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -132,30 +133,6 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.User' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CT_hoadon_Hoa_don">
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
-          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HoaDon">
-              <PropertyRef Name="MaHD" />
-            </Principal>
-            <Dependent Role="CTHD">
-              <PropertyRef Name="MaHD" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CT_hoadon_Mat_hang1">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
-          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SanPham">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="CTHD">
-              <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CT_PhieuNhap_Mat_hang">
           <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
           <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
@@ -177,6 +154,30 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.User' does not have a primary ke
             </Principal>
             <Dependent Role="CTPN">
               <PropertyRef Name="MaPhieuNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_HoaDon">
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDon">
+              <PropertyRef Name="MaHD" />
+            </Principal>
+            <Dependent Role="CTHD">
+              <PropertyRef Name="MaHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_SanPham">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="CTHD">
+              <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -264,7 +265,20 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.User' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PhieuBaoHanh_SanPham">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+          <End Role="PhieuBaoHanh" Type="Self.PhieuBaoHanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="PhieuBaoHanh">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="CuaHangDienTuModelStoreContainer">
+          <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPN" EntityType="Self.CTPN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
@@ -275,14 +289,6 @@ warning 6002: The table/view 'CuaHangDienTu.dbo.User' does not have a primary ke
           <EntitySet Name="PhieuNhap" EntityType="Self.PhieuNhap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CTHD" EntityType="Self.CTHD" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[CTHD].[MaHD] AS [MaHD], 
-[CTHD].[MaSP] AS [MaSP], 
-[CTHD].[DonGia] AS [DonGia], 
-[CTHD].[SoLuong] AS [SoLuong]
-FROM [dbo].[CTHD] AS [CTHD]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [User].[TaiKhoan] AS [TaiKhoan], 
@@ -293,14 +299,6 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_CT_hoadon_Hoa_don" Association="Self.FK_CT_hoadon_Hoa_don">
-            <End Role="HoaDon" EntitySet="HoaDon" />
-            <End Role="CTHD" EntitySet="CTHD" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CT_hoadon_Mat_hang1" Association="Self.FK_CT_hoadon_Mat_hang1">
-            <End Role="SanPham" EntitySet="SanPham" />
-            <End Role="CTHD" EntitySet="CTHD" />
-          </AssociationSet>
           <AssociationSet Name="FK_CT_PhieuNhap_Mat_hang" Association="Self.FK_CT_PhieuNhap_Mat_hang">
             <End Role="SanPham" EntitySet="SanPham" />
             <End Role="CTPN" EntitySet="CTPN" />
@@ -308,6 +306,14 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <AssociationSet Name="FK_CT_PhieuNhap_Phieu_nhap1" Association="Self.FK_CT_PhieuNhap_Phieu_nhap1">
             <End Role="PhieuNhap" EntitySet="PhieuNhap" />
             <End Role="CTPN" EntitySet="CTPN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_HoaDon" Association="Self.FK_CTHD_HoaDon">
+            <End Role="HoaDon" EntitySet="HoaDon" />
+            <End Role="CTHD" EntitySet="CTHD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_SanPham" Association="Self.FK_CTHD_SanPham">
+            <End Role="SanPham" EntitySet="SanPham" />
+            <End Role="CTHD" EntitySet="CTHD" />
           </AssociationSet>
           <AssociationSet Name="FK_Hoa_don_Khach_hang" Association="Self.FK_Hoa_don_Khach_hang">
             <End Role="KhachHang" EntitySet="KhachHang" />
@@ -337,12 +343,29 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="PhieuNhap" EntitySet="PhieuNhap" />
           </AssociationSet>
+          <AssociationSet Name="FK_PhieuBaoHanh_SanPham" Association="Self.FK_PhieuBaoHanh_SanPham">
+            <End Role="SanPham" EntitySet="SanPham" />
+            <End Role="PhieuBaoHanh" EntitySet="PhieuBaoHanh" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CuaHangDienTuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CTHD">
+          <Key>
+            <PropertyRef Name="MaHD" />
+            <PropertyRef Name="MaSP" />
+          </Key>
+          <Property Name="MaHD" Type="Int64" Nullable="false" />
+          <Property Name="MaSP" Type="Int64" Nullable="false" />
+          <Property Name="DonGia" Type="Int64" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="ThanhTien" Type="Int64" />
+          <NavigationProperty Name="HoaDon" Relationship="Self.FK_CTHD_HoaDon" FromRole="CTHD" ToRole="HoaDon" />
+          <NavigationProperty Name="SanPham" Relationship="Self.FK_CTHD_SanPham" FromRole="CTHD" ToRole="SanPham" />
+        </EntityType>
         <EntityType Name="CTPN">
           <Key>
             <PropertyRef Name="MaPhieuNhap" />
@@ -352,6 +375,7 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <Property Name="MaSP" Type="Int64" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
           <Property Name="GiaNhap" Type="Int64" />
+          <Property Name="ThanhTien" Type="Int64" />
           <NavigationProperty Name="SanPham" Relationship="Self.FK_CT_PhieuNhap_Mat_hang" FromRole="CTPN" ToRole="SanPham" />
           <NavigationProperty Name="PhieuNhap" Relationship="Self.FK_CT_PhieuNhap_Phieu_nhap1" FromRole="CTPN" ToRole="PhieuNhap" />
         </EntityType>
@@ -364,7 +388,7 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <Property Name="MaNV" Type="Int64" />
           <Property Name="NgayLap" Type="DateTime" Precision="0" />
           <Property Name="TongTien" Type="Int64" />
-          <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_hoadon_Hoa_don" FromRole="HoaDon" ToRole="CTHD" />
+          <NavigationProperty Name="CTHDs" Relationship="Self.FK_CTHD_HoaDon" FromRole="HoaDon" ToRole="CTHD" />
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_Hoa_don_Khach_hang" FromRole="HoaDon" ToRole="KhachHang" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Hoa_don_Nhan_vien" FromRole="HoaDon" ToRole="NhanVien" />
         </EntityType>
@@ -415,22 +439,23 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <Key>
             <PropertyRef Name="MaPhieu" />
           </Key>
-          <Property Name="MaPhieu" Type="Int64" Nullable="false" />
+          <Property Name="MaPhieu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SDT" Type="Int64" />
           <Property Name="MaSP" Type="Int64" />
           <Property Name="NgayMua" Type="DateTime" Precision="0" />
           <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_Phieu_bao_hanh_Khach_hang" FromRole="PhieuBaoHanh" ToRole="KhachHang" />
           <NavigationProperty Name="SanPham" Relationship="Self.FK_Phieu_bao_hanh_Mat_hang" FromRole="PhieuBaoHanh" ToRole="SanPham" />
+          <NavigationProperty Name="SanPham1" Relationship="Self.FK_PhieuBaoHanh_SanPham" FromRole="PhieuBaoHanh" ToRole="SanPham" />
         </EntityType>
         <EntityType Name="PhieuNhap">
           <Key>
             <PropertyRef Name="MaPhieuNhap" />
           </Key>
           <Property Name="MaPhieuNhap" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TongTien" Type="Int64" />
           <Property Name="MaNV" Type="Int64" />
           <Property Name="NgayLap" Type="DateTime" Precision="0" />
+          <Property Name="TongTien" Type="Int64" />
           <NavigationProperty Name="CTPNs" Relationship="Self.FK_CT_PhieuNhap_Phieu_nhap1" FromRole="PhieuNhap" ToRole="CTPN" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Phieu_nhap_Nhan_vien" FromRole="PhieuNhap" ToRole="NhanVien" />
         </EntityType>
@@ -442,11 +467,13 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <Property Name="TenSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaLoai" Type="Int64" />
           <Property Name="MaNCC" Type="Int64" />
+          <Property Name="SoLuongTon" Type="Int32" />
+          <NavigationProperty Name="CTHDs" Relationship="Self.FK_CTHD_SanPham" FromRole="SanPham" ToRole="CTHD" />
           <NavigationProperty Name="CTPNs" Relationship="Self.FK_CT_PhieuNhap_Mat_hang" FromRole="SanPham" ToRole="CTPN" />
           <NavigationProperty Name="LoaiSanPham" Relationship="Self.FK_Mat_hang_Loai_mat_hang1" FromRole="SanPham" ToRole="LoaiSanPham" />
           <NavigationProperty Name="NhaCungCap" Relationship="Self.FK_Mat_hang_Nha_cung_cap1" FromRole="SanPham" ToRole="NhaCungCap" />
           <NavigationProperty Name="PhieuBaoHanhs" Relationship="Self.FK_Phieu_bao_hanh_Mat_hang" FromRole="SanPham" ToRole="PhieuBaoHanh" />
-          <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_hoadon_Mat_hang1" FromRole="SanPham" ToRole="CTHD" />
+          <NavigationProperty Name="PhieuBaoHanhs1" Relationship="Self.FK_PhieuBaoHanh_SanPham" FromRole="SanPham" ToRole="PhieuBaoHanh" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -458,18 +485,6 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="CTHD">
-          <Key>
-            <PropertyRef Name="MaHD" />
-            <PropertyRef Name="MaSP" />
-          </Key>
-          <Property Name="MaHD" Type="Int64" Nullable="false" />
-          <Property Name="MaSP" Type="Int64" Nullable="false" />
-          <Property Name="DonGia" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="SoLuong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="HoaDon" Relationship="Self.FK_CT_hoadon_Hoa_don" FromRole="CTHD" ToRole="HoaDon" />
-          <NavigationProperty Name="SanPham" Relationship="Self.FK_CT_hoadon_Mat_hang1" FromRole="CTHD" ToRole="SanPham" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="TaiKhoan" />
@@ -478,6 +493,30 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_Chuc_vu_Nhan_vien" FromRole="User" ToRole="NhanVien" />
         </EntityType>
+        <Association Name="FK_CTHD_HoaDon">
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDon">
+              <PropertyRef Name="MaHD" />
+            </Principal>
+            <Dependent Role="CTHD">
+              <PropertyRef Name="MaHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTHD_SanPham">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="CTHD">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CT_PhieuNhap_Mat_hang">
           <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
           <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
@@ -499,18 +538,6 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
             </Principal>
             <Dependent Role="CTPN">
               <PropertyRef Name="MaPhieuNhap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CT_hoadon_Hoa_don">
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
-          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HoaDon">
-              <PropertyRef Name="MaHD" />
-            </Principal>
-            <Dependent Role="CTHD">
-              <PropertyRef Name="MaHD" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -610,19 +637,20 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CT_hoadon_Mat_hang1">
-          <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
-          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+        <Association Name="FK_PhieuBaoHanh_SanPham">
+          <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+          <End Role="PhieuBaoHanh" Type="Self.PhieuBaoHanh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SanPham">
               <PropertyRef Name="MaSP" />
             </Principal>
-            <Dependent Role="CTHD">
+            <Dependent Role="PhieuBaoHanh">
               <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CuaHangDienTuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
           <EntitySet Name="CTPNs" EntityType="Self.CTPN" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
           <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
@@ -633,8 +661,15 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <EntitySet Name="PhieuNhaps" EntityType="Self.PhieuNhap" />
           <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_CTHD_HoaDon" Association="Self.FK_CTHD_HoaDon">
+            <End Role="HoaDon" EntitySet="HoaDons" />
+            <End Role="CTHD" EntitySet="CTHDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_SanPham" Association="Self.FK_CTHD_SanPham">
+            <End Role="SanPham" EntitySet="SanPhams" />
+            <End Role="CTHD" EntitySet="CTHDs" />
+          </AssociationSet>
           <AssociationSet Name="FK_CT_PhieuNhap_Mat_hang" Association="Self.FK_CT_PhieuNhap_Mat_hang">
             <End Role="SanPham" EntitySet="SanPhams" />
             <End Role="CTPN" EntitySet="CTPNs" />
@@ -642,10 +677,6 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
           <AssociationSet Name="FK_CT_PhieuNhap_Phieu_nhap1" Association="Self.FK_CT_PhieuNhap_Phieu_nhap1">
             <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
             <End Role="CTPN" EntitySet="CTPNs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CT_hoadon_Hoa_don" Association="Self.FK_CT_hoadon_Hoa_don">
-            <End Role="HoaDon" EntitySet="HoaDons" />
-            <End Role="CTHD" EntitySet="CTHDs" />
           </AssociationSet>
           <AssociationSet Name="FK_Hoa_don_Khach_hang" Association="Self.FK_Hoa_don_Khach_hang">
             <End Role="KhachHang" EntitySet="KhachHangs" />
@@ -679,9 +710,9 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
             <End Role="SanPham" EntitySet="SanPhams" />
             <End Role="PhieuBaoHanh" EntitySet="PhieuBaoHanhs" />
           </AssociationSet>
-          <AssociationSet Name="FK_CT_hoadon_Mat_hang1" Association="Self.FK_CT_hoadon_Mat_hang1">
+          <AssociationSet Name="FK_PhieuBaoHanh_SanPham" Association="Self.FK_PhieuBaoHanh_SanPham">
             <End Role="SanPham" EntitySet="SanPhams" />
-            <End Role="CTHD" EntitySet="CTHDs" />
+            <End Role="PhieuBaoHanh" EntitySet="PhieuBaoHanhs" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -690,6 +721,17 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CuaHangDienTuModelStoreContainer" CdmEntityContainer="CuaHangDienTuEntities">
+          <EntitySetMapping Name="CTHDs">
+            <EntityTypeMapping TypeName="CuaHangDienTuModel.CTHD">
+              <MappingFragment StoreEntitySet="CTHD">
+                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CTPNs">
             <EntityTypeMapping TypeName="CuaHangDienTuModel.CTPN">
               <MappingFragment StoreEntitySet="CTPN">
@@ -697,6 +739,7 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="GiaNhap" ColumnName="GiaNhap" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -766,9 +809,9 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
             <EntityTypeMapping TypeName="CuaHangDienTuModel.PhieuNhap">
               <MappingFragment StoreEntitySet="PhieuNhap">
                 <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
-                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -779,6 +822,7 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
                 <ScalarProperty Name="TenSP" ColumnName="TenSP" />
                 <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
                 <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+                <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -790,16 +834,6 @@ FROM [dbo].[User] AS [User]</DefiningQuery>
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CTHDs">
-            <EntityTypeMapping TypeName="CuaHangDienTuModel.CTHD">
-              <MappingFragment StoreEntitySet="CTHD">
-                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Core, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
+    <Reference Include="Bunifu.UI.WinForm.BunifuShadowPanel">
+      <HintPath>C:\Users\hp\Downloads\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForm.BunifuShadowPanel.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>C:\Users\hp\Downloads\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
@@ -78,6 +81,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,6 +93,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CuaHangDienTuDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuaHangDienTuDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Database\CTHD.cs">
       <DependentUpon>CuaHangDienTu.tt</DependentUpon>
     </Compile>
@@ -140,6 +149,23 @@
     <Compile Include="Database\User.cs">
       <DependentUpon>CuaHangDienTu.tt</DependentUpon>
     </Compile>
+    <Compile Include="frmThemKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemKH.Designer.cs">
+      <DependentUpon>frmThemKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CTHD1.cs" />
+    <Compile Include="CuaHangDienTuDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuaHangDienTuDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +178,12 @@
     <Compile Include="frmLoaiSP.Designer.cs">
       <DependentUpon>frmLoaiSP.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemSP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +192,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmPhieuNhap.Designer.cs">
+      <DependentUpon>frmPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UC_BanHang.cs">
       <SubType>UserControl</SubType>
@@ -221,11 +265,23 @@
     <Compile Include="UC_SanPham.Designer.cs">
       <DependentUpon>UC_SanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_ThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongKe.Designer.cs">
+      <DependentUpon>UC_ThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_XemHoaDon.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_XemHoaDon.Designer.cs">
       <DependentUpon>UC_XemHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_XemPhieuNhap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_XemPhieuNhap.Designer.cs">
+      <DependentUpon>UC_XemPhieuNhap.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -233,19 +289,28 @@
     <EmbeddedResource Include="frmLoaiSP.resx">
       <DependentUpon>frmLoaiSP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemKH.resx">
+      <DependentUpon>frmThemKH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThemSP.resx">
       <DependentUpon>frmThemSP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Report\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\frmPhieuNhap.resx">
+      <DependentUpon>frmPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Report1.rdlc" />
+    <EmbeddedResource Include="Report\rpPhieuNhap.rdlc" />
     <EmbeddedResource Include="UC_BanHang.resx">
       <DependentUpon>UC_BanHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,17 +341,46 @@
     <EmbeddedResource Include="UC_SanPham.resx">
       <DependentUpon>UC_SanPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongKe.resx">
+      <DependentUpon>UC_ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_XemHoaDon.resx">
       <DependentUpon>UC_XemHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_XemPhieuNhap.resx">
+      <DependentUpon>UC_XemPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CuaHangDienTuDataSet.xsc">
+      <DependentUpon>CuaHangDienTuDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CuaHangDienTuDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CuaHangDienTuDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CuaHangDienTuDataSet.xss">
+      <DependentUpon>CuaHangDienTuDataSet.xsd</DependentUpon>
+    </None>
     <EntityDeploy Include="Database\CuaHangDienTu.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CuaHangDienTu.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="CuaHangDienTuDataSet1.xsc">
+      <DependentUpon>CuaHangDienTuDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CuaHangDienTuDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CuaHangDienTuDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CuaHangDienTuDataSet1.xss">
+      <DependentUpon>CuaHangDienTuDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Database\CuaHangDienTu.edmx.diagram">
       <DependentUpon>CuaHangDienTu.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CTHD1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -301,12 +395,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Collapse Arrow_20px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Expand Arrow_20px.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\sort_up_20px.png" />
+    <None Include="Resources\sort_down_20px.png" />
     <Content Include="Database\CuaHangDienTu.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CuaHangDienTu.edmx</DependentUpon>
@@ -317,6 +407,30 @@
       <DependentUpon>CuaHangDienTu.edmx</DependentUpon>
       <LastGenOutput>CuaHangDienTu.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\subtract_15px.png" />
+    <None Include="Resources\peacock_50px.png" />
+    <None Include="Resources\owl_60px.png" />
+    <None Include="Resources\sun_15px.png" />
+    <None Include="Resources\sun_50px.png" />
+    <None Include="Resources\sort_down_15px.png" />
+    <None Include="Resources\sort_up_15px.png" />
+    <None Include="Resources\sort_up_10px.png" />
+    <None Include="Resources\sort_down_10px.png" />
+    <None Include="Resources\shopping_cart_30px.png" />
+    <None Include="Resources\shopping_cart_20px.png" />
+    <None Include="Resources\132274046_236401444744737_1223757028845659062_n.png" />
+    <None Include="Resources\heart_outline_60px.png" />
+    <None Include="Resources\heart_20px.png" />
+    <None Include="Resources\alarm_20px.png" />
+    <None Include="Resources\cloud_50px.png" />
+    <None Include="Resources\Untitled-1.jpg" />
+    <None Include="Resources\laptop_60px.png" />
+    <None Include="Resources\laptop_120px.png" />
+    <None Include="Resources\girl.jpg" />
+    <None Include="Resources\g.jpg" />
+    <None Include="Resources\bbb.jpg" />
+    <None Include="Resources\uu.jpg" />
+    <None Include="Resources\c.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

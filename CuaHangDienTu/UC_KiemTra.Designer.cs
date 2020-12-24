@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_KiemTra));
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -36,13 +38,39 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txttimkiem = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.btnTimKiem = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.txttimkiem = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.btnHuy = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bunifuCustomDataGrid1
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bunifuCustomDataGrid1.DoubleBuffered = true;
+            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
+            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(0, 70);
+            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
+            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.bunifuCustomDataGrid1.RowHeadersWidth = 51;
+            this.bunifuCustomDataGrid1.RowTemplate.Height = 24;
+            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(898, 467);
+            this.bunifuCustomDataGrid1.TabIndex = 46;
             // 
             // txttimkiem
             // 
@@ -71,7 +99,7 @@
             this.txttimkiem.IconRight = null;
             this.txttimkiem.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txttimkiem.Lines = new string[0];
-            this.txttimkiem.Location = new System.Drawing.Point(17, 15);
+            this.txttimkiem.Location = new System.Drawing.Point(0, 15);
             this.txttimkiem.MaxLength = 32767;
             this.txttimkiem.MinimumSize = new System.Drawing.Size(100, 35);
             this.txttimkiem.Modified = false;
@@ -106,7 +134,7 @@
             this.txttimkiem.SelectionLength = 0;
             this.txttimkiem.SelectionStart = 0;
             this.txttimkiem.ShortcutsEnabled = true;
-            this.txttimkiem.Size = new System.Drawing.Size(761, 35);
+            this.txttimkiem.Size = new System.Drawing.Size(775, 35);
             this.txttimkiem.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txttimkiem.TabIndex = 45;
             this.txttimkiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -117,106 +145,79 @@
             this.txttimkiem.UseSystemPasswordChar = false;
             this.txttimkiem.WordWrap = true;
             // 
-            // btnTimKiem
+            // btnHuy
             // 
-            this.btnTimKiem.AllowToggling = false;
-            this.btnTimKiem.AnimationSpeed = 200;
-            this.btnTimKiem.AutoGenerateColors = false;
-            this.btnTimKiem.BackColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(65)))), ((int)(((byte)(156)))));
-            this.btnTimKiem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.BackgroundImage")));
-            this.btnTimKiem.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnTimKiem.ButtonText = "Tìm";
-            this.btnTimKiem.ButtonTextMarginLeft = 0;
-            this.btnTimKiem.ColorContrastOnClick = 45;
-            this.btnTimKiem.ColorContrastOnHover = 45;
-            this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHuy.AllowToggling = false;
+            this.btnHuy.AnimationSpeed = 200;
+            this.btnHuy.AutoGenerateColors = false;
+            this.btnHuy.BackColor = System.Drawing.Color.Transparent;
+            this.btnHuy.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(235)))), ((int)(((byte)(193)))));
+            this.btnHuy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHuy.BackgroundImage")));
+            this.btnHuy.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnHuy.ButtonText = "Tìm kiếm";
+            this.btnHuy.ButtonTextMarginLeft = 0;
+            this.btnHuy.ColorContrastOnClick = 45;
+            this.btnHuy.ColorContrastOnHover = 45;
+            this.btnHuy.Cursor = System.Windows.Forms.Cursors.Hand;
             borderEdges1.BottomLeft = true;
             borderEdges1.BottomRight = true;
             borderEdges1.TopLeft = true;
             borderEdges1.TopRight = true;
-            this.btnTimKiem.CustomizableEdges = borderEdges1;
-            this.btnTimKiem.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnTimKiem.DisabledBorderColor = System.Drawing.Color.Empty;
-            this.btnTimKiem.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnTimKiem.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnTimKiem.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btnTimKiem.Font = new System.Drawing.Font("MS Reference Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTimKiem.IconMarginLeft = 11;
-            this.btnTimKiem.IconPadding = 10;
-            this.btnTimKiem.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTimKiem.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(65)))), ((int)(((byte)(156)))));
-            this.btnTimKiem.IdleBorderRadius = 25;
-            this.btnTimKiem.IdleBorderThickness = 1;
-            this.btnTimKiem.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(65)))), ((int)(((byte)(156)))));
-            this.btnTimKiem.IdleIconLeftImage = null;
-            this.btnTimKiem.IdleIconRightImage = null;
-            this.btnTimKiem.IndicateFocus = false;
-            this.btnTimKiem.Location = new System.Drawing.Point(784, 15);
-            this.btnTimKiem.Name = "btnTimKiem";
-            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties5.BorderRadius = 25;
+            this.btnHuy.CustomizableEdges = borderEdges1;
+            this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnHuy.DisabledBorderColor = System.Drawing.Color.Empty;
+            this.btnHuy.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnHuy.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnHuy.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.btnHuy.Font = new System.Drawing.Font("MS Reference Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnHuy.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHuy.IconMarginLeft = 11;
+            this.btnHuy.IconPadding = 10;
+            this.btnHuy.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHuy.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(235)))), ((int)(((byte)(193)))));
+            this.btnHuy.IdleBorderRadius = 35;
+            this.btnHuy.IdleBorderThickness = 1;
+            this.btnHuy.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(235)))), ((int)(((byte)(193)))));
+            this.btnHuy.IdleIconLeftImage = null;
+            this.btnHuy.IdleIconRightImage = null;
+            this.btnHuy.IndicateFocus = false;
+            this.btnHuy.Location = new System.Drawing.Point(781, 15);
+            this.btnHuy.Name = "btnHuy";
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            stateProperties5.BorderRadius = 35;
             stateProperties5.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             stateProperties5.BorderThickness = 1;
-            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             stateProperties5.ForeColor = System.Drawing.Color.White;
             stateProperties5.IconLeftImage = null;
             stateProperties5.IconRightImage = null;
-            this.btnTimKiem.onHoverState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties6.BorderRadius = 25;
+            this.btnHuy.onHoverState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            stateProperties6.BorderRadius = 35;
             stateProperties6.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             stateProperties6.BorderThickness = 1;
-            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             stateProperties6.ForeColor = System.Drawing.Color.White;
             stateProperties6.IconLeftImage = null;
             stateProperties6.IconRightImage = null;
-            this.btnTimKiem.OnPressedState = stateProperties6;
-            this.btnTimKiem.Size = new System.Drawing.Size(62, 38);
-            this.btnTimKiem.TabIndex = 44;
-            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnTimKiem.TextMarginLeft = 0;
-            this.btnTimKiem.UseDefaultRadiusAndThickness = true;
-            // 
-            // bunifuCustomDataGrid1
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuCustomDataGrid1.DoubleBuffered = true;
-            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
-            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(17, 70);
-            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
-            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.bunifuCustomDataGrid1.RowHeadersWidth = 51;
-            this.bunifuCustomDataGrid1.RowTemplate.Height = 24;
-            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(829, 392);
-            this.bunifuCustomDataGrid1.TabIndex = 46;
+            this.btnHuy.OnPressedState = stateProperties6;
+            this.btnHuy.Size = new System.Drawing.Size(114, 37);
+            this.btnHuy.TabIndex = 95;
+            this.btnHuy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnHuy.TextMarginLeft = 0;
+            this.btnHuy.UseDefaultRadiusAndThickness = true;
             // 
             // UC_KiemTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.bunifuCustomDataGrid1);
             this.Controls.Add(this.txttimkiem);
-            this.Controls.Add(this.btnTimKiem);
             this.Name = "UC_KiemTra";
-            this.Size = new System.Drawing.Size(862, 480);
+            this.Size = new System.Drawing.Size(898, 537);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
             this.ResumeLayout(false);
 
@@ -225,7 +226,7 @@
         #endregion
 
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txttimkiem;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnTimKiem;
         private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnHuy;
     }
 }
